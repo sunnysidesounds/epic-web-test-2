@@ -27,7 +27,7 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
         * So anything less than 3 elements returns an empty string. If I removed this constraint it would return [7, 8 , 9]
 
 * Completion Time:
-    * 3 - 4 hrs, initially solved, refactored, tests, revise
+    * 2.5 hrs, initially solved, refactored, tests, revise
 
 * Tests:
     * Location: `src/questions2/Questions2.test.js`
@@ -41,7 +41,8 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * Answer : I've verified my solutions by doing the following
         * Initial tests with the provided input/output test data (6 total)
         * Tests for the string cleaning and formatting.
-        * matrix string to 2d-array formatting
+        * Matrix string to 2d-array formatting
+        * Matrix generation
 
 
 
