@@ -1,4 +1,5 @@
 import React from 'react';
+import {Integer} from './Integer.js'
 import './Question1.sass';
 
 /**
@@ -8,7 +9,7 @@ import './Question1.sass';
  * @param numberBase
  */
 window.integerToString = function integerToString(value, numberBase) {
-    return value;
+    return Integer.toBaseNString(value, numberBase)
 };
 
 export default class Question1 extends React.Component {
@@ -18,7 +19,7 @@ export default class Question1 extends React.Component {
     };
 
     onClickConvertIToA = () => {
-        const output = window.integerToString(this.valueInput.value);
+        const output = window.integerToString(this.valueInput.value, this.baseValueInput.value);
         this.setState({
             output
         });
@@ -53,7 +54,12 @@ export default class Question1 extends React.Component {
                             </div>
                             <div className="form-group">
                                 <label htmlFor="base">Base</label>
-                                <input type="text" id="base" className="form-control" placeholder="1234" />
+                                <input
+                                    ref={(c) => {this.baseValueInput = c;}}
+                                    type="text"
+                                    id="base"
+                                    className="form-control"
+                                    placeholder="10" />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="output">Output</label>
@@ -63,6 +69,7 @@ export default class Question1 extends React.Component {
                                     className="form-control"
                                     placeholder="0123456789ABCDEF"
                                     value={this.state.output}
+                                    readOnly
                                 />
                             </div>
                             <button className="btn btn-default" onClick={this.onClickConvertIToA}>
