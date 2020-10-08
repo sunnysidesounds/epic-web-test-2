@@ -1,4 +1,5 @@
 import React from 'react';
+import MatrixRotator from "./MatrixRotator";
 import './Question2.sass';
 
 /**
@@ -7,7 +8,7 @@ import './Question2.sass';
  * @param value
  */
 window.clockwiseMatrix = function clockwiseMatrix(value) {
-    return value;
+    return MatrixRotator.rotateClockwise(value)
 };
 
 export default class Question2 extends React.Component {
@@ -49,8 +50,8 @@ export default class Question2 extends React.Component {
                                     type="text"
                                     id="value"
                                     rows="10"
+                                    defaultValue={defaultInputValue}
                                     className="form-control">
-                                    {defaultInputValue}
                                 </textarea>
                             </div>
                             <div className="form-group">
@@ -60,7 +61,7 @@ export default class Question2 extends React.Component {
                                     id="output"
                                     readOnly
                                     className="form-control"
-                                    placeholder="2, 3, 4, 8, 12, 10, 6, 0, 1, 5, 7, 9"
+                                    placeholder=""
                                     value={this.state.output}
                                 />
                             </div>
