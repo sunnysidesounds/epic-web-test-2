@@ -1,12 +1,13 @@
 import React from 'react';
 import Accounts from "../Accounts/Accounts";
-import SadeFace from '../sad-face.png'
+import SadeFace from '../assets/sad-face.png'
 
 /**
  * Saf Face Image constant
  * @type {{src, alt: string}}
  */
 const image = {
+  class: "sad-face-img",
   src: SadeFace,
   alt: 'Sad Face',
 };
@@ -23,7 +24,6 @@ export default class DeleteUserForm extends React.Component {
    */
   handleDeleteClick() {
     Accounts.deleteAccount(this.props.sendData.id).then(data => {
-      console.log("Request : ", data.data);
       this.props.closeModal();
       this.props.refreshMe();
     });
@@ -35,7 +35,7 @@ export default class DeleteUserForm extends React.Component {
         <div className="delete-container">
           <h1>Delete User</h1>
           <p>Are you sure you want to delete user: {this.props.sendData.name}?</p>
-          <img className="sad-face-img" src={image.src} alt="Sad Face" />
+          <img className={image.class} src={image.src} alt={image.alt} />
           <br/>
           <br/>
           <div className="btn-group" role="group">

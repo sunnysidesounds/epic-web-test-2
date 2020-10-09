@@ -1,5 +1,6 @@
 const bodyParser = require('body-parser');
 
+
 function AccountHandler(app) {
     let urlencodedParser = bodyParser.urlencoded({ extended: true });
     var cors = require('cors');
@@ -10,103 +11,103 @@ function AccountHandler(app) {
     const mockDatabase = [{
         name: 'Beryl Widener',
         birthday: new Date('1986-12-31'),
-        email: 'test1@epicgames.com',
+        email: 'inMemory1@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Wilbert Sambrano',
         birthday: new Date('1984-02-12'),
-        email: 'test2@epicgames.com',
+        email: 'inMemory2@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Clemente Laferriere',
         birthday: new Date('1989-10-31'),
-        email: 'test3@epicgames.com',
+        email: 'inMemory3@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Raylene Falgoust',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory4@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Joaquina Schwalb',
         birthday: new Date('1986-01-01'),
-        email: 'test5@epicgames.com',
+        email: 'inMemory5@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Eli Thrash',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory6@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Tenisha Mcilvaine',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory7@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Odis Marroquin',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory8@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Loree Sandler',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory9@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Josefine Primus',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory10@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Amalia Fulghum',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory11@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Lauralee Harnish',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory12@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Jeanna Brumbaugh',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory13@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Alona Shane',
         birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        email: 'inMemory14@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Rosalie Vallone',
-        birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        birthday: new Date('2008-07-23'),
+        email: 'inMemory15@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Michelina Boddie',
-        birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        birthday: new Date('2011-03-28'),
+        email: 'inMemory16@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }, {
         name: 'Era Weesner',
-        birthday: new Date('1990-11-25'),
-        email: 'test4@epicgames.com',
+        birthday: new Date('2012-06-19'),
+        email: 'inMemory17@epicgames.com',
         balance: '100.00',
         id: '' + currentId++
     }];

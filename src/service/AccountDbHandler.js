@@ -1,8 +1,8 @@
-import bodyParser from 'body-parser';
-import KnexDatabase from '../Configuration/KnexDatabase';
+var bodyParser = require('body-parser');
+var KnexDatabase = require('./KnexDatabase');
 
 
-export default function AccountDbHandler(app) {
+function AccountDbHandler(app) {
   let urlencodedParser = bodyParser.urlencoded({ extended: true });
   let cors = require('cors');
   let knex = KnexDatabase.getConfiguration();
@@ -175,8 +175,5 @@ export default function AccountDbHandler(app) {
         })
   });
 
-
-
-
-
 }
+module.exports = AccountDbHandler;

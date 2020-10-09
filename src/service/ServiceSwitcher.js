@@ -1,6 +1,6 @@
 
 
-export default class ServiceSwitcher {
+class ServiceSwitcher {
 
   /**
    * Set to true to use the MySQL Database, false is the in-memory
@@ -9,3 +9,5 @@ export default class ServiceSwitcher {
   static useDatabase = true;
 
 }
+
+module.exports = ServiceSwitcher
