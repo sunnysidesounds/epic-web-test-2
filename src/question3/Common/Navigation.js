@@ -17,8 +17,7 @@ export default class Navigation extends React.Component {
               </li>
             </ul>
             <form className="form-inline">
-              <input className="form-control mr-sm-2" type="search" onChange={this.props.searchFilter} placeholder="Search" aria-label="Search"/>
-              <button className="custom-navbar-button btn btn-default btn-outline btn-circle collapsed" type="submit">Search</button>
+              <input className="form-control mr-sm-2" type="search" onChange={this.props.searchFilter} placeholder="Type to Search" aria-label="Search"/>
             </form>
           </nav>
         </div>
