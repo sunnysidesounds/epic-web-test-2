@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
     "bootstrap": "^4.5.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
@@ -17,9 +18,9 @@
     "node-sass": "^4.14.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-router": "^5.0.0",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8"
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3"
   },
   "proxy": "http://localhost:4000",
   "scripts": {

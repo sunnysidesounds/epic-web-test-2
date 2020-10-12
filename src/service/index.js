@@ -1,7 +1,7 @@
 var express = require('express');
 var AccountHandler = require('./AccountHandler');
 var AccountDbHandler = require('./AccountDbHandler');
-var ServiceSwitcher = require('./ServiceSwitcher')
+var DataSource = require('./DataSource')
 var logger = require('morgan');
 
 const app = new express();
@@ -12,7 +12,7 @@ app.use((req, res, next) => {
 });
 
 // Switch between mysql db and in-memory database
-if(ServiceSwitcher.useDatabase){
+if(DataSource.useDatabase){
     console.log("Using mysql database");
     AccountDbHandler(app);
 } else {

@@ -1,5 +1,5 @@
-var bodyParser = require('body-parser');
-var KnexDatabase = require('./KnexDatabase');
+const bodyParser = require('body-parser');
+const KnexDatabase = require('./KnexDatabase');
 
 
 function AccountDbHandler(app) {
@@ -10,14 +10,10 @@ function AccountDbHandler(app) {
   app.use(bodyParser.json());
   app.use(cors());
 
-  // TODO : The raw query need to be parameterized / sanitized. Need to figure out knex parameterization.
-  // This pose security issues without sql sanitization.
-
-
   // Account endpoints :
 
   /**
-   * Get all account, joined by it's wallet
+   * Get all account, joined by it's wallet entity
    */
   app.get('/accounts', function(req,res){
       knex.raw("SELECT a.id, a.name, a.email, a.birthday, w.balance FROM account a\n" +
@@ -41,12 +37,11 @@ function AccountDbHandler(app) {
     if(req.body.balance == null){
       balance = 0;
     }
-    knex.raw("INSERT INTO account (name, email, birthday) " +
-        "VALUES ('"+name+"', '"+email+"', '"+birthday+"');")
+    //TODO : Update to use ORM knex ORM transations.
+    knex.raw("INSERT INTO account (name, email, birthday) VALUES (?, ?, ?);", [name, email, birthday])
         .then(function(collection){
           let newId = collection[0].insertId;
-          knex.raw("INSERT INTO wallet (account_id, balance) " +
-              "VALUES ('"+newId+"', '"+balance+"');")
+          knex.raw("INSERT INTO wallet (account_id, balance) VALUES (?, ?);", [newId, balance])
               .then(function(collection){
                 res.json(collection[0])
               }).catch(function(err){
@@ -64,7 +59,7 @@ function AccountDbHandler(app) {
   app.get('/accounts/:id', (req, res) => {
     let id = req.params.id;
       knex.raw("SELECT a.id, a.name, a.email, a.birthday, w.balance FROM account a\n" +
-          "LEFT JOIN wallet w ON a.id = w.account_id WHERE a.id = "+id+"")
+          "LEFT JOIN wallet w ON a.id = w.account_id WHERE a.id = ?", [id])
         .then(function(collection){
           res.json(collection[0][0])
         })
@@ -79,9 +74,10 @@ function AccountDbHandler(app) {
    */
   app.delete('/accounts/:id', (req, res) => {
     let id = req.params.id;
-    knex.raw("DELETE FROM wallet WHERE account_id = "+id+";")
+    //TODO : Update to use ORM knex ORM transations.
+    knex.raw("DELETE FROM wallet WHERE account_id = ?;", [id])
         .then(function(collection){
-          knex.raw("DELETE FROM account WHERE id = "+id+"")
+          knex.raw("DELETE FROM account WHERE id = ?", [id])
               .then(function(collection){
                 res.json(collection[0])
               }).catch(function(err){
@@ -105,11 +101,10 @@ function AccountDbHandler(app) {
     if(req.body.balance == null){
       balance = 0;
     }
-    knex.raw("UPDATE account SET name = '"+name+"', " +
-        "email = '"+email+"', birthday = '"+birthday+"' " +
-        "WHERE id = "+id+"")
+    //TODO : Update to use ORM knex ORM transations.
+    knex.raw("UPDATE account SET name = ?, email = ?, birthday = ? WHERE id = ?", [name, email, birthday, id])
         .then(function(collection){
-          knex.raw("UPDATE wallet SET balance = "+balance+" WHERE account_id = " + id)
+          knex.raw("UPDATE wallet SET balance = ? WHERE account_id = ?", [balance, id])
               .then(function(collection){
                 res.json(collection[0])
               }).catch(function(err){
@@ -128,7 +123,7 @@ function AccountDbHandler(app) {
    */
   app.get('/wallet/:account_id', (req, res) => {
     let accountId = req.params.account_id;
-    knex.raw("SELECT * FROM wallet WHERE account_id = "+accountId+";")
+    knex.raw("SELECT * FROM wallet WHERE account_id = ?;", [accountId])
         .then(function(collection){
           res.json(collection[0][0])
         })
@@ -143,8 +138,7 @@ function AccountDbHandler(app) {
   app.post('/wallet', (req, res) => {
     let accountId = req.body.account_id;
     let balance = req.body.balance;
-    knex.raw("INSERT INTO wallet (account_id, balance) " +
-        "VALUES ('"+accountId+"', '"+balance+"');")
+    knex.raw("INSERT INTO wallet (account_id, balance) VALUES (?, ?);", [accountId, balance])
         .then(function(collection){
           res.json({
             success:true,
@@ -162,8 +156,8 @@ function AccountDbHandler(app) {
   app.put('/wallet/:account_id', urlencodedParser, (req, res) => {
     let accountId = req.params.account_id;
     let balance = req.body.balance;
-    knex.raw("UPDATE wallet SET balance = '"+balance+"' " +
-        "WHERE account_id = "+accountId+"")
+    knex.raw("UPDATE wallet SET balance = ? " +
+        "WHERE account_id = ?", [balance, accountId])
         .then(function(collection){
           res.json({
             success:true,

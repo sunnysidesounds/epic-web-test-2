@@ -88,4 +88,5 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
 
 
  ### Questions
- - What them of
+ - What are using using bind function or arrow functions?
+ - Write a script about environment variables.
