@@ -104,7 +104,6 @@ I’ve completed 3 out of the 4 enhancements.
     We should add additional logic in to handle this case.
     * When creating a new user, if you don’t pick any of the month/date/year dropdown values it defaults to 12-31-1899.
     This should be fixed with some kind of default or requirements of the birthday value.
-    *
 
 * Assumptions:
     * Account consists of name, birthday and email. As well as wallet balance which is part of the Full Service implementation.
