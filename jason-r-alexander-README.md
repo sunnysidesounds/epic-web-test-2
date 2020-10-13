@@ -76,7 +76,11 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * Location: `src/questions3/Common/Compare.test.js` (unit tests)
 
 * Screenshots:
+
+***LIST VIEW***
 <img width="1142" alt="Screen Shot 2020-10-12 at 9 34 32 PM" src="https://user-images.githubusercontent.com/1030838/95816054-049d9100-0cd3-11eb-918e-3f045cef0eaa.png">
+***EDIT / NEW MODEL VIEW:
+<img width="776" alt="Screen Shot 2020-10-12 at 9 34 41 PM" src="https://user-images.githubusercontent.com/1030838/95816139-37478980-0cd3-11eb-8ae4-cc8285f85146.png">
 
 
 ## Question 4:
