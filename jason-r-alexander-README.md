@@ -56,6 +56,10 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
 
 * Enchanced Feature Requirements:
     * Improved User Experience and front-end design. Created modals for new, update and delete. This fits with a single page app design.
+        * As I wasn’t familiar with using the ReactJS framework. The original design had 2 columns. Left column facilitated the list-all accounts, 
+        while the right columns showed the different forms (e.g New, Edit, Delete forms) After becoming acclimated to the framework I created a 
+        single list view that displays all the user accounts and several modal pop-up dialogs that facilitated the different CRUD-like operations. 
+        I also styled the look to reflect some of Epic’s color schema (Black and white)
     * Full service implementation, in-memory is replaced with Mysql Database, if environment variable USE_MYSQL_DB is set to true.
         * Setup on mysql database:
             1. Set environment variables: `../src/question3/scripts/setup_mysql.sh`
