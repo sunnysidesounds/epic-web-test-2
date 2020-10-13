@@ -63,7 +63,7 @@ I’ve completed 3 out of the 4 enhancements.
         1. run `yarn` inside the root of the epic-web-test/ directory
         2. run `yarn start` inside the root in the epic-web-test/ directory
         3. run `yarn start-service` inside the root in the epic-web-test/ directory
-    * *** Mysql Setup***
+    * ***Mysql Setup***
         1. Install mysql `brew install mysql`
         2. Now create a database and call it _account_manager_
         3. Next we need to run the sql schema and test data sql. To do that we need to run this command from the terminal that creates the schema and inserts test data.
