@@ -1,25 +1,20 @@
 import axios from 'axios';
 
-export const API = '';
-export const getData = async query => {
-  const url = `${API}/${query}`;
-  return await axios.get(url);
-};
-
-export const putData = async query => {
-  const url = `${API}/${query}`;
-  return await axios.put(url);
-};
-
-export const postData = async query => {
-  const url = `${API}/${query}`;
-  return await axios.post(url);
-};
-
-export const deleteData = async query => {
-  const url = `${API}/${query}`;
-  return await axios.delete(url);
-};
+export const makeEndpointCall = async (verb, query) => {
+  const url = `/${query}`;
+  switch(verb){
+    case 'get':
+      return await axios.get(url);
+    case 'put':
+      return await axios.put(url);
+    case 'post':
+      return await axios.post(url);
+    case 'delete':
+      return await axios.delete(url);
+    default:
+      return await axios.get(url);
+  }
+}
 
 jest.mock('axios');
 
@@ -43,9 +38,9 @@ describe('test getAll: Get all accounts ', () => {
     ]
   }
     axios.get.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(getData('accounts')).resolves.toEqual(data);
+    await expect(makeEndpointCall('get','accounts')).resolves.toEqual(data);
     expect(axios.get).toHaveBeenCalledWith(
-        `${API}/accounts`,
+        `/accounts`,
     );
   });
 
@@ -64,9 +59,9 @@ describe('test getById: Get account by id', () => {
       ]
     }
     axios.get.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(getData('accounts/1')).resolves.toEqual(data);
+    await expect(makeEndpointCall('get','accounts/1')).resolves.toEqual(data);
     expect(axios.get).toHaveBeenCalledWith(
-        `${API}/accounts/1`,
+        `/accounts/1`,
     );
   });
 
@@ -85,9 +80,9 @@ describe('test updateAccount: Update account by id', () => {
       ]
     }
     axios.put.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(putData('accounts/1')).resolves.toEqual(data);
+    await expect(makeEndpointCall('put','accounts/1')).resolves.toEqual(data);
     expect(axios.put).toHaveBeenCalledWith(
-        `${API}/accounts/1`,
+        `/accounts/1`,
     );
   });
 
@@ -106,9 +101,9 @@ describe('test newAccount: create new account', () => {
       ]
     }
     axios.post.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(postData('accounts/10')).resolves.toEqual(data);
+    await expect(makeEndpointCall('post','accounts/10')).resolves.toEqual(data);
     expect(axios.post).toHaveBeenCalledWith(
-        `${API}/accounts/10`,
+        `/accounts/10`,
     );
   });
 
@@ -127,9 +122,9 @@ describe('test deleteAccount: delete account by id', () => {
       ]
     }
     axios.delete.mockImplementationOnce(() => Promise.resolve(data));
-    await expect(deleteData('accounts/10')).resolves.toEqual(data);
+    await expect(makeEndpointCall('delete', 'accounts/10')).resolves.toEqual(data);
     expect(axios.delete).toHaveBeenCalledWith(
-        `${API}/accounts/10`,
+        `/accounts/10`,
     );
   });
 

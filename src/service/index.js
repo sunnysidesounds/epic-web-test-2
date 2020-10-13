@@ -11,7 +11,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// Switch between mysql db and in-memory database
+// Switch between mysql db and in-memory database based off environment variable
 if(DataSource.useDatabase){
     console.log("Using mysql database");
     AccountDbHandler(app);

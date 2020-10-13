@@ -1,7 +1,6 @@
 class MatrixRotator {
 
   results = "";
-  matrix = ""
   errorMessage = "A error has occurred";
 
   /**
@@ -10,7 +9,6 @@ class MatrixRotator {
    * @returns {string}
    */
   rotateClockwise(matrix_value){
-    this.matrix = matrix_value
     return this.processMatrix(matrix_value);
   }
 
@@ -40,8 +38,9 @@ class MatrixRotator {
       // parse string into JSON object for use.
       matrix = JSON.parse(toParseStr);
     } catch(e){
-      console.error("ERROR parsing JSON : ", e.message);
+      // console.error("ERROR parsing JSON : ", e.message);
       // matrix is null, bubble up error to display error message
+      return matrix;
     }
     return matrix;
   }

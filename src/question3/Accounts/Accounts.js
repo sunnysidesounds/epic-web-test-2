@@ -1,5 +1,7 @@
 import axios from "axios";
 
+/* Client-side endpoint calls */
+
 export default {
   /**
    * Get all accounts
