@@ -54,18 +54,48 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * Must have user new form
     * Must be able to create, read, update and delete
 
+* Overview : All CRUD operations are implemented for both the in-memory database as well as the MySQL databases.
+(See the install/setup details) Here’s a list of some of the enhancement requirements I’ve completed.
+I’ve completed 3 out of the 4 enhancements.
+
+* Setup Details:
+    * ***In-Memory Setup***
+        1. run `yarn` inside the root of the epic-web-test/ directory
+        2. run `yarn start` inside the root in the epic-web-test/ directory
+        3. run `yarn start-service` inside the root in the epic-web-test/ directory
+    * *** Mysql Setup***
+        1. Install mysql `brew install mysql`
+        2. Now create a database and call it _account_manager_
+        3. Next we need to run the sql schema and test data sql. To do that we need to run this command from the terminal that creates the schema and inserts test data.
+           `mysql -u <your_username> -p account_manager < /epic-web-test/src/question3/sql/schema_test_data_setup.sql`
+        4. Set environment variables: `../src/question3/scripts/setup_mysql.sh`
+        5. run `yarn start` inside the root in the epic-web-test/ directory
+        6. run `yarn start-service` inside the root in the epic-web-test/ directory
+
 * Enchanced Feature Requirements:
     * ***Improved User Experience and front-end design***. Created modals for new, update and delete.
-        * As I wasn’t familiar with using the ReactJS framework. The original design had 2 columns. Left column facilitated the list-all accounts,
-        while the right columns showed the different forms (e.g New, Edit, Delete forms) After becoming acclimated to the framework I created a
-        single list view that displays all the user accounts and several modal pop-up dialogs that facilitated the different CRUD-like operations.
-        I also styled the look to reflect some of Epic’s color schema (Black and white)
+        * The original design had 2 columns. Left column facilitated the list-all accounts,while the right columns showed
+        the different forms (e.g New, Edit, Delete forms) After becoming acclimated to the framework I created a csingle
+        list view that displays all the user accounts and several modal pop-up dialogs that facilitated the different
+        CRUD-like operations. I also styled the look to reflect some of Epic’s color schema (Black and white)
     * ***Full service implementation***, in-memory is replaced with Mysql Database, if environment variable USE_MYSQL_DB is set to true.
-        * Setup on mysql database:
-            1. Set environment variables: `../src/question3/scripts/setup_mysql.sh`
-            2. Import the schema and data: `mysql -u root -p account_manager < /src/question2/sql/schema_test_data_setup.sql`
-                * TODO: To setup migration functionality with Knexjs, this would remove step 2
-    * ***Add searching/filtering functionality to the accounts***, the list view have filter by methods for name, email, birthday and balance
+        * Question: What considerations did you make for adding this additional data?
+            * Answer: I created an additional db table called wallet that has a foreign-key constraints on the original account table.
+            This normalizes the data and creates separation of data. The current implementation is simplified, but is setup in a
+            way where we can further extend our data model to facilitate further account details.
+        * Question: How would you scale this system to millions of accounts?
+            * Answer: From the architecture point-of-view. I’d want a web infrastructure that has a beefy load balancer
+            (or entry point) that can allocate requests quickly to N amount of application servers that would run this
+            application. I’ve seen this done in combination with AWS to scale out your load across application servers.
+            I’d want to separate out my database reads/writes to separate database instances. Using a master /
+            slave paradigm where the master writes and the slaves reads. I’d want to implement a caching layer for
+            static content or assets. I’d want to implement monitoring tools that would allow me to track users and
+            load in real-time as well a aggregate application and database log files to track down any bottle-knecks.
+            I’d also want a extensive application testing framework using a continuous deployment approach to validate
+            that the application is fully functioning as it should and can easily me modified if any issues do come up.
+
+    * ***Add searching/filtering functionality to the accounts***,
+        * the list view have filter by methods for name, email, birthday and balance
 
 * Assumptions:
     * name and email are required, birthday is not, balance does not?
