@@ -153,7 +153,6 @@ scripting XSS attacking. Where the attacker could manipulate cookie data.
 
 ## Question 6:
 * Question: Please provide us with a link(s) to your portfolio and/or some code samples of your work.
-* Answer: [https://github.com/sunnysidesounds](https://github.com/sunnysidesounds) Below are some highlighted repositories. I’ve also attached some
-code samples of some private repositories I’ve been actively working on.
+* Answer: [https://github.com/sunnysidesounds](https://github.com/sunnysidesounds)
 
 ---
