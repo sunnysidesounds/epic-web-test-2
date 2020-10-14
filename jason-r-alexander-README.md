@@ -129,7 +129,7 @@ I’ve completed 3 out of the 4 enhancements.
 
 ***EDIT / NEW MODEL VIEW***
 
-<img width="776" alt="Screen Shot 2020-10-12 at 9 34 41 PM" src="https://user-images.githubusercontent.com/1030838/95816139-37478980-0cd3-11eb-8ae4-cc8285f85146.png">
+<img width="576" alt="Screen Shot 2020-10-12 at 9 34 41 PM" src="https://user-images.githubusercontent.com/1030838/95816139-37478980-0cd3-11eb-8ae4-cc8285f85146.png">
 
 ---
 
