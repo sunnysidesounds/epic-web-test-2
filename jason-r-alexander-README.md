@@ -16,14 +16,14 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
 
 * Tests:
     * Run tests by `yarn react-scripts test`
-    * Location: `src/questions1/Integer.test.js` (unit tests)
+    * Location: `/src/questions1/Integer.test.js` (unit tests)
 
 ---
 
 ## Question 2: Implementation of _clockwiseMatrix(matrixString)_
 
 * Assumptions:
-    * Assuming the string representation is patterned after matrix, SIZE: N * M ( e.g [1, 2, 3...] [4, 5, 6...] )
+    * Assuming the string representation is patterned after a matrix, SIZE: N * M ( e.g [[1, 2, 3...], [4, 5, 6...]] )
         * With that said, this matrix should be able to be parsed with a JSON parser, (after cleaning and formatting the initial string.)
         * We always have equal opening and closing brackets. If not a `An error has occurred` message is outputted.
     * The sample test input #5 [7, 8 , 9], returns a blank (empty) string per the exercise document in the sample output.
@@ -34,19 +34,19 @@ Contact : sunnysidesounds@gmail.com / 415-690-3590
 
 * Tests:
     * Run tests by `yarn react-scripts test`
-    * Location: `src/questions2/MatrixRotator.test.js` (unit tests)
+    * Location: `/src/questions2/MatrixRotator.test.js` (unit tests)
 
 * Logging:
     * In the MatrixRotator.js line 36 we are console logging this error. A TODO, would to implement some kind of logging library, monitoring, on this error.
-        * Maybe client-to-server logging mechanism / library
+        * client-to-server logging mechanism / library
 
 * Question 2a:
     * Question: Given your solution, how would you verify the correctness of your answers?
-    * Answer : I've verified my solutions by doing the following testting
+    * Answer : I've verified my solutions by doing the following testing
         * Initial tests with the provided input/output test data
-        * Tests for the string cleaning and formatting.
-        * Matrix string to 2d-array formatting
-        * Matrix generation
+        * Individual tests for the string cleaning and formatting.
+        * Individual tests for the matrix string to 2d-array formatting
+        * Individual tests for matrix generation data structure.
 
 ---
 
@@ -76,12 +76,12 @@ I’ve completed 3 out of the 4 enhancements.
         6. run `yarn start-service` inside the root in the epic-web-test/ directory
 
 * Enchanced Feature Requirements:
-    * ***Improved User Experience and front-end design***. Created modals for new, update and delete.
+    1. ***Improved User Experience and front-end design***. Created modals for new, update and delete.
         * The original design had 2 columns. Left column facilitated the list-all accounts,while the right columns showed
         the different forms (e.g New, Edit, Delete forms) After becoming acclimated to the framework I created a csingle
         list view that displays all the user accounts and several modal pop-up dialogs that facilitated the different
         CRUD-like operations. I also styled the look to reflect some of Epic’s color schema (Black and white)
-    * ***Full service implementation***, in-memory is replaced with Mysql Database, if environment variable USE_MYSQL_DB is set to true.
+    2. ***Full service implementation***, in-memory is replaced with Mysql Database, if environment variable USE_MYSQL_DB is set to true.
         * Question: What considerations did you make for adding this additional data?
             * Answer: I created an additional db table called wallet that has a foreign-key constraints on the original account table.
             This normalizes the data and creates separation of data. The current implementation is simplified, but is setup in a
@@ -97,7 +97,7 @@ I’ve completed 3 out of the 4 enhancements.
             I’d also want a extensive application testing framework using a continuous deployment approach to validate
             that the application is fully functioning as it should and can easily me modified if any issues do come up.
 
-    * ***Add searching/filtering functionality to the accounts***,
+    3. ***Add searching/filtering functionality to the accounts***,
         * I’ve added two filtering features. You can filter by column (name, email, birthday, balance) or there’s a
         search bar that can search based on the account name. Further implementation is needed to search across other
         attributes besides name.
